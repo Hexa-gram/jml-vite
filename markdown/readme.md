@@ -1,10 +1,10 @@
 
 # Vite简介
-<img src="https://cn.vitejs.dev/logo.svg" width = "100%" height="40px" alt="图片名称" />
+<img src="https://cn.vitejs.dev/logo.svg" width = "100%" alt="图片名称" />
 
 ## 1.什么是Vite 
 
-<img src="./img/dang.jpeg" width = "100%" height="40px" alt="图片名称" />   
+<img src="./img/dang.jpeg" width = "100%" alt="图片名称" />   
 
 [`vite 官网`](https://cn.vitejs.dev/guide/why.html#the-problems)
 
@@ -22,8 +22,8 @@
 
 5.Vite 让浏览器接管了`打包程序的部分`工作,只需要在浏览器请求源码时进行`转换`并`按需`提供源码,即只在当前屏幕上实际使用时才会被处理。   
 
-<img src="./img/bundle.png" width = "100%" height="40px" alt="传统" />    
-<img src="./img/nativeEsm.png" width = "100%" height="40px" alt="vite" />
+<img src="./img/bundle.png" width = "100%" alt="传统" />    
+<img src="./img/nativeEsm.png" width = "100%" alt="vite" />
 
 简单总结下Vite的主要特点:
 
@@ -33,7 +33,7 @@
 
 ## 3.先跑一个vite看看🏃
 
-<img src="./img/cat.gif" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>
+<img src="./img/cat.gif" alt="图片名称" style="margin:0 auto;" width = "100%"/>
 
 在开始研究它之前,让我们先来看看`Vite`怎么用
 ### 搭建第一个Vite项目  
@@ -51,8 +51,8 @@ $ npm run dev
 
 好的,到这里我们的vite已经可以跑起来了,启动后我们会发现第一次启动相比后续的启动,在速度上会慢一些,并且会多出一句提示log,这个提示的意思是在第一次启动时,vite会收集所用的依赖项,并且只有当我们的依赖项或配置改变时，才会再次构建   
 
-<img src="./img/first_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>
-<img src="./img/next_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>
+<img src="./img/first_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
+<img src="./img/next_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
 
 接下来我们打开项目生成的目录结构,vite打包的宿主文件是index.html,可以发现 
 
@@ -69,7 +69,7 @@ createApp(App).mount('#app')
 ```
 浏览器采用es模块的方式打开index.html,直接请求/src/main.js文件,节省了打包的步骤,然后依次请求main.js中import的文件,实现了按需加载文件,然后我们打开`Network`,刷新页面,可以看到很多请求文件,我们打开其中的main.js可以看到
 
-<img src="./img/net1.jpg" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>
+<img src="./img/net1.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
 
 其中显示的代码和我们本地的文件,只有引入文件的路径是不同的,文件的引入方式,也有一些不同,可以看到vite将vue文件拆成了一个个通过`type`标识的多个请求
 
@@ -80,7 +80,7 @@ createApp(App).mount('#app')
 
 原理大概如下图所示
 
-<img src="./img/jiagou.image" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>   
+<img src="./img/jiagou.image" alt="图片名称" style="margin:0 auto;" width = "100%"/>   
 
 ## 5.实现一个简易的vite
 
@@ -153,7 +153,7 @@ app.listen(1011, () => {
 
 对于浏览器而言,在我们使用`import`方式导入模块时,浏览器只能识别相对地址和绝对地址(`/`,`./`,`../`),但是我们的代码中常常是直接使用`import vue from 'vue'`这样的方式,引入node_modules中的文件,这种引入方式,浏览器无法识别
 
-<img src="./img/import_vue.image" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/> 
+<img src="./img/import_vue.image" alt="图片名称" style="margin:0 auto;" width = "100%"/> 
 
 >Talk is cheap. Show me the code
 
@@ -216,7 +216,7 @@ else if (url.endsWith('.js')) {
 ### 4.客户端注入
 跑起我们的项目后,我们会发现,所有的文件资源已经请求正常了,但是会有一个process相关的报错如下所示:
 
-<img src="./img/process_error.jpg" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/> 
+<img src="./img/process_error.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/> 
 
 对于一般的项目来说，我们经常会去使用process.env去判断环境，而如果你采用脚手架工具进行开发时webpack会来帮我们做这件事，所以在vite中我们也需要对它进行一个处理
 
@@ -244,7 +244,7 @@ if (url === '/') {
 ### 5.解析.vue文件
 最后,我们开始啃最大的骨头,首先我们先研究下`vite`是如何解析`.vue`文件的,我们先跑起`vite`的服务,来看一下
 
-<img src="./img/vite_require.jpg" alt="图片名称" style="margin:0 auto;" width = "100%" height="40px"/>    
+<img src="./img/vite_require.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>    
 
 可以看到`vite`是将单个的vue文件,拆分成了几个部分,目前们可以看到css被标记成了`type=style`,在早期的`vite`中,`template`也是一样的处理方式,被标记成`type=template`
 
