@@ -1,10 +1,10 @@
 
 # Vite简介
-<img src="https://cn.vitejs.dev/logo.svg" width = "100%" alt="图片名称" />
+<img src="https://cn.vitejs.dev/logo.svg" width="100px" alt="图片名称" />
 
 ## 1.什么是Vite 
 
-<img src="./img/dang.jpeg" width = "100%" alt="图片名称" />   
+<img src="./img/dang.jpeg" alt="图片名称" />   
 
 [`vite 官网`](https://cn.vitejs.dev/guide/why.html#the-problems)
 
@@ -22,8 +22,8 @@
 
 5.Vite 让浏览器接管了`打包程序的部分`工作,只需要在浏览器请求源码时进行`转换`并`按需`提供源码,即只在当前屏幕上实际使用时才会被处理。   
 
-<img src="./img/bundle.png" width = "100%" alt="传统" />    
-<img src="./img/nativeEsm.png" width = "100%" alt="vite" />
+<img src="./img/bundle.png" alt="传统" />    
+<img src="./img/nativeEsm.png" alt="vite" />
 
 简单总结下Vite的主要特点:
 
@@ -33,7 +33,7 @@
 
 ## 3.先跑一个vite看看🏃
 
-<img src="./img/cat.gif" alt="图片名称" style="margin:0 auto;" width = "100%"/>
+<img src="./img/cat.gif" alt="图片名称" style="margin:0 auto;"/>
 
 在开始研究它之前,让我们先来看看`Vite`怎么用
 ### 搭建第一个Vite项目  
@@ -51,8 +51,8 @@ $ npm run dev
 
 好的,到这里我们的vite已经可以跑起来了,启动后我们会发现第一次启动相比后续的启动,在速度上会慢一些,并且会多出一句提示log,这个提示的意思是在第一次启动时,vite会收集所用的依赖项,并且只有当我们的依赖项或配置改变时，才会再次构建   
 
-<img src="./img/first_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
-<img src="./img/next_run.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
+<img src="./img/first_run.jpg" alt="图片名称" style="margin:0 auto;"/>
+<img src="./img/next_run.jpg" alt="图片名称" style="margin:0 auto;" />
 
 接下来我们打开项目生成的目录结构,vite打包的宿主文件是index.html,可以发现 
 
@@ -69,7 +69,7 @@ createApp(App).mount('#app')
 ```
 浏览器采用es模块的方式打开index.html,直接请求/src/main.js文件,节省了打包的步骤,然后依次请求main.js中import的文件,实现了按需加载文件,然后我们打开`Network`,刷新页面,可以看到很多请求文件,我们打开其中的main.js可以看到
 
-<img src="./img/net1.jpg" alt="图片名称" style="margin:0 auto;" width = "100%"/>
+<img src="./img/net1.jpg" alt="图片名称" style="margin:0 auto;"/>
 
 其中显示的代码和我们本地的文件,只有引入文件的路径是不同的,文件的引入方式,也有一些不同,可以看到vite将vue文件拆成了一个个通过`type`标识的多个请求
 
@@ -80,7 +80,7 @@ createApp(App).mount('#app')
 
 原理大概如下图所示
 
-<img src="./img/jiagou.image" alt="图片名称" style="margin:0 auto;" width = "100%"/>   
+<img src="./img/jiagou.image" alt="图片名称" style="margin:0 auto;"/>   
 
 ## 5.实现一个简易的vite
 
